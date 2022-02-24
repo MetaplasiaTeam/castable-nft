@@ -7,13 +7,10 @@ pragma solidity ^0.8.0;
  */
 interface IERC721Castable {
     /**
- * @dev Return collectibles to cast Ethereum(wei).
+ * @dev Returns the minted value of the collectible, Ethereum(wei) or ERC20(token-value),ERC721(tokenId).
+     * `addr` is 0x when minting with Ethereum, the other is the address of erc20 token or erc721.
      */
-    function tokenValue(uint256 tokenId) external view returns (uint256);
+    function tokenValue(uint256 tokenId) external view returns (address addr, uint256 value);
 
-    /**
-* @dev Returns the value of collectibles cast using ERC20.
-     */
-    function tokenERC20Value(uint256 tokenId,address erc20TokenAddr) external view returns (uint256);
 
 }
